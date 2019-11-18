@@ -2,7 +2,7 @@ import React, { memo } from 'react'
 
 const Character = ({ character }) => {
   return (
-    <div className="character--container mt4 mb4 ml3 mr2">
+    <div className="character--container">
       <article className="mw6 bg-white br3 pa3 pa4-ns ba b--black-10">
         <div className="tc">
           <img src={character.image} className="br-100 h3 w3 dib" alt={character.name} />
