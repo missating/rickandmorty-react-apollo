@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { memo } from 'react'
 import { Query } from 'react-apollo'
 import gql from 'graphql-tag'
 import Character from '../Character'
+import './characterlist.scss'
 
 const FEED_QUERY = gql`
 {
@@ -10,25 +11,29 @@ const FEED_QUERY = gql`
       count
     }
     results {
+      id,
+      image,
       name,
+      species,
+      gender,
       status
     }
   }
 }
 `
 
-class CharacterList extends Component {
-  render() {
-    return (
-      <Query query={FEED_QUERY}>
-        {({ loading, error, data }) => {
+const CharacterList = () => {
+  return (
+    <Query query={FEED_QUERY} className="character--list--container">
+      {
+        ({ loading, error, data }) => {
           if (loading) return <div>Fetching</div>
           if (error) return <div>Error</div>
 
           const CharactersToRender = data.characters.results
 
           return (
-            <div>
+            <div className="character--list--container__character--section">
               {CharactersToRender.map(character =>
                 <Character
                   key={character.id}
@@ -36,10 +41,10 @@ class CharacterList extends Component {
                 />)}
             </div>
           )
-        }}
-      </Query>
-    )
-  }
+        }
+      }
+    </Query >
+  )
 }
 
-export default CharacterList
+export default memo(CharacterList);
