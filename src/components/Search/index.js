@@ -12,7 +12,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div>
+      <>
         <div>
           Search
           <input
@@ -24,7 +24,7 @@ class Search extends Component {
         {this.state.characters.map((character, index) => (
           <Character key={character.id} character={character} index={index} />
         ))}
-      </div>
+      </>
     )
   }
 

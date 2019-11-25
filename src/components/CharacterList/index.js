@@ -33,7 +33,7 @@ const CharacterList = () => {
           const CharactersToRender = data.characters.results
 
           return (
-            <div className="character--list--container__character--section">
+            <div className="character--list--container__character--section mt5 mb5">
               {CharactersToRender.map(character =>
                 <Character
                   key={character.id}

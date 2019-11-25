@@ -5,7 +5,7 @@ import { withRouter } from 'react-router'
 class Header extends Component {
   render() {
     return (
-      <div className="flex pa1 justify-between nowrap orange">
+      <div className="flex fixed w-100 pa2 justify-between nowrap bg-yellow">
         <div className="flex flex-fixed black">
           <div className="fw7 mr1">Characters In Rick and Morty</div>
           <Link to="/" className="ml1 no-underline black">
